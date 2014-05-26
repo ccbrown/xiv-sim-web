@@ -1,0 +1,18 @@
+.fixed-width {
+	font-family: Courier New, monospace
+}
+
+.error {
+	text-align: left;
+	background-color: #FFC0C0;
+	padding: 10px;
+	font-size: 10pt;
+}
+
+.numeric {
+	text-align: right;
+}
+
+td, th {
+	padding: 6px 20px 6px 20px;
+}
