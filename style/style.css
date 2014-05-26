@@ -16,3 +16,13 @@
 td, th {
 	padding: 6px 20px 6px 20px;
 }
+
+.aura-timeline {
+	width: 100%;
+	padding: 0px;
+	background-color: #000000;
+}
+
+.aura-timeline span {
+	display: inline-block;
+}

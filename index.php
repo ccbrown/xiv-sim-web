@@ -2,6 +2,7 @@
 <head>
 	<title>Simulation</title>
 	<link href="./style/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
 </head>
 <body>
 
