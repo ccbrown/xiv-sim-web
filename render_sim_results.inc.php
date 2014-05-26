@@ -5,68 +5,92 @@ function render_sim_results($json_results) {
 	<script src="./js/highcharts/highcharts.js"></script>
 	<script src="./js/highcharts/modules/exporting.js"></script>
 
-	<b>Simulation Length:</b> <?= htmlspecialchars($results['length'] / 1000000) ?><br />
-	<b>Damage:</b> <?= htmlspecialchars($results['damage']) ?><br />
-	<b>DPS:</b> <?= htmlspecialchars($results['dps']) ?><br />
+	<center>
 
-	<?php
-	if (count($results['tp-samples']) > 1) {
-		?>
-		<script type="text/javascript">
-			$(function () {
-				$('#tp-chart').highcharts({
-					chart: { zoomType: 'x' },
-					title: { text: 'TP Over Time' },
-					xAxis: {
-						type: 'datetime',
-					},
-					yAxis: {
-						title: { text: 'TP' },
-						min: 0, max: 1000
-					},
-					legend: { enabled: false },
-					plotOptions: {
-						area: {
-							fillColor: {
-								linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
-								stops: [
-									[0, Highcharts.getOptions().colors[0]],
-									[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-								]
-							},
-							marker: { radius: 2 },
-							lineWidth: 1,
-							states: {
-								hover: { lineWidth: 1 }
-							},
-							threshold: null
-						}
-					},
-					series: [{
-						type: 'area',
-						name: 'TP',
-						data: [
-							<?php
-							$first = true;
-							foreach ($results['tp-samples'] as $sample) {
-								if (!$first) { echo ","; }
-								$x = $sample[0] / 1000;
-								echo "[{$x},{$sample[1]}]";
-								$first = false;
-							}
-							?>
-						]
-					}],
-					credits: { enabled: false },
-				});
-			});
-		</script>
-		<div id="tp-chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-		<?php
-	}
-	?>
+	<div class="wrapper">
 
+	<br />
+
+	<h1>Simulation Results</h1>
+	
 	<table width="100%">
+		<tr>
+			<td>
+				<br /><br />
+				<b>Time:</b> <?= htmlspecialchars($results['length'] / 1000000) ?><br />
+				<b>Damage:</b> <?= htmlspecialchars($results['damage']) ?><br />
+				<b>DPS:</b> <?= htmlspecialchars($results['dps']) ?><br />
+			</td>
+			<td style="padding: 0px;">
+				<?php
+				if (count($results['tp-samples']) > 1) {
+					?>
+					<script type="text/javascript">
+						$(function () {
+							$('#tp-chart').highcharts({
+								chart: {
+									zoomType: 'x',
+									marginLeft: 0,
+									marginRight: 0,
+									spacingLeft: 0,
+									spacingRight: 0,
+									width: 900
+								},
+								title: { text: 'TP Over Time' },
+								xAxis: {
+									type: 'datetime',
+									minPadding: 0,
+									maxPadding: 0
+								},
+								yAxis: {
+									title: { enabled: false },
+									min: 0, max: 1000,
+									labels: { enabled: false }
+								},
+								legend: { enabled: false },
+								plotOptions: {
+									area: {
+										fillColor: {
+											linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+											stops: [
+												[0, Highcharts.getOptions().colors[0]],
+												[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+											]
+										},
+										marker: { radius: 2 },
+										lineWidth: 1,
+										states: {
+											hover: { lineWidth: 1 }
+										},
+										threshold: null
+									}
+								},
+								series: [{
+									type: 'area',
+									name: 'TP',
+									data: [
+										<?php
+										$first = true;
+										foreach ($results['tp-samples'] as $sample) {
+											if (!$first) { echo ","; }
+											$x = $sample[0] / 1000;
+											echo "[{$x},{$sample[1]}]";
+											$first = false;
+										}
+										?>
+									]
+								}],
+								credits: { enabled: false },
+							});
+						});
+					</script>
+					<div id="tp-chart" style="height: 400px; margin: 0 auto;"></div>
+					<?php
+				}
+				?>
+			</td>
+		</tr>
+
 		<tr>
 			<th>Aura</th>
 			<th>Stacks</th>
@@ -76,7 +100,7 @@ function render_sim_results($json_results) {
 			?>
 			<tr>
 				<td><?= htmlspecialchars($id) ?></td>
-				<td>
+				<td class="chart-area">
 					<div class="aura-timeline">
 						<?php
 						$max = 0;
@@ -108,7 +132,9 @@ function render_sim_results($json_results) {
 		?>
 	</table>
 	
-	<table>
+	<br /><br />
+	
+	<table width="100%">
 		<tr>
 			<th>Effect</th>
 			<th class="numeric">Damage</th>
@@ -132,6 +158,13 @@ function render_sim_results($json_results) {
 		}
 		?>
 	</table>
+
+	<br /><br />
+	
+	</div>
+	
+	</center>
+	
 	<?php
 }
 ?>

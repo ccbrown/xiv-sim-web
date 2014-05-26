@@ -15,6 +15,7 @@
 
 td, th {
 	padding: 6px 20px 6px 20px;
+	vertical-align: top;
 }
 
 .aura-timeline {
@@ -25,4 +26,13 @@ td, th {
 
 .aura-timeline span {
 	display: inline-block;
+}
+
+.chart-area {
+	padding: 0px;
+	width: 900px;
+}
+
+.wrapper {
+	width: 1200px;
 }
