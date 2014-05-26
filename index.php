@@ -83,13 +83,13 @@ if ($sim_results) {
 	
 	<form action="" method="post">
 		<table>
-		<tr><td>Weapon Damage</td><td><input type="text" name="wdmg" value="<?= field_value('wdmg', 50) ?>" /></td></tr>
-		<tr><td>Weapon Delay</td><td><input type="text" name="wdel" value="<?= field_value('wdel', 2.5) ?>" /></td></tr>
-		<tr><td>Strength</td><td><input type="text" name="str" value="<?= field_value('str', 400) ?>" /></td></tr>
-		<tr><td>Critical Hit Rate</td><td><input type="text" name="crit" value="<?= field_value('crit', 400) ?>" /></td></tr>
-		<tr><td>Skill Speed</td><td><input type="text" name="ss" value="<?= field_value('ss', 400) ?>" /></td></tr>
-		<tr><td>Determination</td><td><input type="text" name="det" value="<?= field_value('det', 400) ?>" /></td></tr>
-		<tr><td>Simulation Length (Seconds)</td><td><input type="text" name="len" value="<?= field_value('len', 600) ?>" /></td></tr>
+		<tr><td>Weapon Damage</td><td><input type="text" name="wdmg" value="<?= field_value('wdmg', 47) ?>" /></td></tr>
+		<tr><td>Weapon Delay</td><td><input type="text" name="wdel" value="<?= field_value('wdel', 2.72) ?>" /></td></tr>
+		<tr><td>Strength</td><td><input type="text" name="str" value="<?= field_value('str', 512) ?>" /></td></tr>
+		<tr><td>Critical Hit Rate</td><td><input type="text" name="crit" value="<?= field_value('crit', 486) ?>" /></td></tr>
+		<tr><td>Skill Speed</td><td><input type="text" name="ss" value="<?= field_value('ss', 402) ?>" /></td></tr>
+		<tr><td>Determination</td><td><input type="text" name="det" value="<?= field_value('det', 346) ?>" /></td></tr>
+		<tr><td>Simulation Length (Seconds)</td><td><input type="text" name="len" value="<?= field_value('len', 660) ?>" /></td></tr>
 		</table>
 		<br /><br />
 		<textarea name="rotation" rows="20" cols="100"><?= field_value('rotation', $rotation) ?></textarea>
