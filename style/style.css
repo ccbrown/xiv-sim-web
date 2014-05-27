@@ -36,3 +36,26 @@ td, th {
 .wrapper {
 	width: 1200px;
 }
+
+.actor-frame {
+	background-color: #f0f0f0;
+	border: 1px solid #c0c0c0;
+	padding: 20px;
+	margin: 20px;
+}
+
+.info-table {
+	padding: 10px;
+	width: 100%;
+	background-color: #ffffff;
+	border: 1px solid #c0c0c0;
+}
+
+.info-table td {
+	border-top: 1px solid #e0e0e0;
+}
+
+.mp-chart .tp-chart {
+	height: 400px;
+	margin: 0 auto;
+}
