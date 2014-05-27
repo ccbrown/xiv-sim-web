@@ -14,6 +14,8 @@ $model = NULL;
 
 if (isset($_GET['monk'])) {
 	$model = 'monk';
+} else if (isset($_GET['dragoon'])) {
+	$model = 'dragoon';
 } else if (isset($_GET['summoner'])) {
 	$model = 'summoner';
 }
@@ -106,7 +108,7 @@ if ($sim_results) {
 		<tr><td>Weapon Damage</td><td><input type="text" name="wdmg" value="<?= field_value('wdmg', 47) ?>" /></td></tr>
 		<tr><td>Weapon Delay</td><td><input type="text" name="wdel" value="<?= field_value('wdel', 2.72) ?>" /></td></tr>
 		<?php
-			if ($model == 'monk') {
+			if ($model == 'monk' || $model == 'dragoon') {
 				?>
 				<tr><td>Strength</td><td><input type="text" name="str" value="<?= field_value('str', 512) ?>" /></td></tr>
 				<tr><td>Critical Hit Rate</td><td><input type="text" name="crit" value="<?= field_value('crit', 486) ?>" /></td></tr>
@@ -144,6 +146,7 @@ if ($sim_results) {
 		<br /><br /><br />
 	
 		<a href="?monk">Monk</a> | 
+		<a href="?dragoon">Dragoon</a> (Work in Progress) | 
 		<a href="?summoner">Summoner</a> (Work in Progress)
 	</center>
 	<?php
