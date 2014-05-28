@@ -99,7 +99,7 @@ function render_model_page($model) {
 					<tr><td>Determination</td><td><input type="text" name="det" value="<?= field_value('det', 346) ?>" /></td></tr>
 					<?php
 				}
-				if ($model == 'summoner') {
+				if ($model == 'summoner' || $model == 'black-mage') {
 					?>
 					<tr><td>Intelligence</td><td><input type="text" name="int" value="<?= field_value('int', 412) ?>" /></td></tr>
 					<tr><td>Piety</td><td><input type="text" name="pie" value="<?= field_value('pie', 244) ?>" /></td></tr>

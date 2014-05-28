@@ -25,7 +25,7 @@ function render_home() {
 
 	<p>Some rotations aren't ideal. I don't play all of these classes. In fact, the only one I play seriously is Monk. If you can improve a rotation, put your improvements in an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. I'll run it through a crap-ton of simulations with varying stats and lengths, and if it puts out higher numbers, I'll make it the default.</p>
 	
-	<p>For the moment, only solo, unfed, target dummy combat is simulated. Eventually I'll add parameters to give more control over the combat conditions.</p>
+	<p>For the moment, only solo target dummy combat is simulated. Eventually I'll add parameters to give more control over the combat conditions.</p>
 	
 	<p>Accuracy cap is assumed. I would definitely like to simulate hits and misses, but this is of relatively low priority since it's generally assumed to be the highest priority until capped and the invisible avoidance number that varies from boss to boss isn't well defined or understood.</p>
 	

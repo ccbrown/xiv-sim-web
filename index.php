@@ -22,7 +22,7 @@ if (isset($_GET['monk'])) {
 } else if (isset($_GET['summoner'])) {
 	$model = 'summoner';
 } else if (isset($_GET['black-mage'])) {
-	die("Sorry, black mage isn't available yet.");
+	$model = 'black-mage';
 }
 
 if ($model) {
