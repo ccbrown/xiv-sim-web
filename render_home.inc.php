@@ -29,7 +29,7 @@ function render_home() {
 	
 	<p>Accuracy cap is assumed. I would definitely like to simulate hits and misses, but this is of relatively low priority since it's generally assumed to be the highest priority until capped and the invisible avoidance number that varies from boss to boss isn't well defined or understood.</p>
 	
-	<p>There is no pre-combat phase. Buffs like Aetherflow and Fists of Fire are put up at the beginning of combat. Getting these up before combat begins is a high priority.</p>
+	<p>There is no pre-combat phase. Buffs like Aetherflow and Fists of Fire are put up at the beginning of combat. Adding pre-combat conditions is a high priority.</p>
 	
 	<p>Finally, and most importantly, some of the damage formulae being used aren't very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the Monk formula.</p>
 
