@@ -5,24 +5,21 @@ function render_sim_results($json_results) {
 	<script src="./js/highcharts/highcharts.js"></script>
 	<script src="./js/highcharts/modules/exporting.js"></script>
 
-	<center>
-
-	<div class="wrapper">
-
-	<br />
-
-	<h1>Simulation Results</h1>
+	<center><h1>Simulation Results</h1></center>
 	
 	<b>Time:</b> <?= htmlspecialchars($results['length'] / 1000000) ?><br />
 	<b>Damage:</b> <?= htmlspecialchars($results['damage']) ?><br />
 	<b>DPS:</b> <?= htmlspecialchars($results['dps']) ?><br />
+
+	<br />
 
 	<?php
 	foreach ($results['subjects'] as $id => $subject) {
 		?>
 		<div class="actor-frame">
 
-		<h2><?= htmlspecialchars($id) ?></h2>
+		<center><h2><?= htmlspecialchars($id) ?></h2></center>
+
 		<table width="100%">
 			<tr>
 				<td>
@@ -244,15 +241,24 @@ function render_sim_results($json_results) {
 		}
 		?>
 
+		<?php
+		if (count($subject['actions'])) {
+			?>
+			<div class="action-list">
+				<?php
+				foreach ($subject['actions'] as $action) {
+					?>
+					<?= htmlspecialchars($action) ?> 
+					<?php
+				}
+				?>
+			</div>
+			<?php
+		}
+		?>
+
 		</div>
 		<?php
 	}
-	?>
-	
-	</div>
-	
-	</center>
-	
-	<?php
 }
 ?>

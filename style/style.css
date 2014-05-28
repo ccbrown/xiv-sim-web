@@ -34,14 +34,16 @@ td, th {
 }
 
 .wrapper {
+	text-align: left;
 	width: 1200px;
+	padding: 20px;
 }
 
 .actor-frame {
 	background-color: #f0f0f0;
 	border: 1px solid #c0c0c0;
 	padding: 20px;
-	margin: 20px;
+	margin-bottom: 20px;
 }
 
 .info-table {
@@ -58,4 +60,11 @@ td, th {
 .mp-chart .tp-chart {
 	height: 400px;
 	margin: 0 auto;
+}
+
+.action-list {
+	text-align: left;
+	padding: 10px;
+	font-size: 9pt;
+	margin: 10px;
 }
