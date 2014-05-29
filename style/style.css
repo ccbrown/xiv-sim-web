@@ -39,11 +39,15 @@ td, th {
 	padding: 20px;
 }
 
-.actor-frame {
+.framed-box {
 	background-color: #f0f0f0;
 	border: 1px solid #c0c0c0;
 	padding: 20px;
 	margin-bottom: 20px;
+}
+
+.framed-box h3 {
+	margin-top: 0px;
 }
 
 .info-table {

@@ -7,6 +7,7 @@ function render_sim_results($json_results) {
 
 	<center><h1>Simulation Results</h1></center>
 	
+	<b>Seed:</b> <?= htmlspecialchars($results['seed']) ?><br />
 	<b>Time:</b> <?= htmlspecialchars($results['length'] / 1000000) ?><br />
 	<b>Damage:</b> <?= htmlspecialchars($results['damage']) ?><br />
 	<b>DPS:</b> <?= htmlspecialchars($results['dps']) ?><br />
@@ -16,7 +17,7 @@ function render_sim_results($json_results) {
 	<?php
 	foreach ($results['subjects'] as $id => $subject) {
 		?>
-		<div class="actor-frame">
+		<div class="framed-box">
 
 		<center><h2><?= htmlspecialchars($id) ?></h2></center>
 
@@ -26,6 +27,41 @@ function render_sim_results($json_results) {
 					<br /><br />
 					<b>Damage:</b> <?= htmlspecialchars($subject['damage']) ?><br />
 					<b>DPS:</b> <?= htmlspecialchars($subject['dps']) ?><br />
+
+					<br />
+
+					<?php
+						if ($subject['stats']['wpdmg']) {
+							?><b>Weapon Physical Damage:</b> <?= htmlspecialchars($subject['stats']['wpdmg']) ?><br /><?php
+						}
+						if ($subject['stats']['wmdmg']) {
+							?><b>Weapon Magic Damage:</b> <?= htmlspecialchars($subject['stats']['wmdmg']) ?><br /><?php
+						}
+						if ($subject['stats']['wdel']) {
+							?><b>Weapon Delay:</b> <?= htmlspecialchars($subject['stats']['wdel']) ?><br /><?php
+						}
+						if ($subject['stats']['str']) {
+							?><b>Strength:</b> <?= htmlspecialchars($subject['stats']['str']) ?><br /><?php
+						}
+						if ($subject['stats']['dex']) {
+							?><b>Dexterity:</b> <?= htmlspecialchars($subject['stats']['dex']) ?><br /><?php
+						}
+						if ($subject['stats']['int']) {
+							?><b>Intelligence:</b> <?= htmlspecialchars($subject['stats']['int']) ?><br /><?php
+						}
+						if ($subject['stats']['crt']) {
+							?><b>Critical Hit Rate:</b> <?= htmlspecialchars($subject['stats']['crt']) ?><br /><?php
+						}
+						if ($subject['stats']['det']) {
+							?><b>Determination:</b> <?= htmlspecialchars($subject['stats']['det']) ?><br /><?php
+						}
+						if ($subject['stats']['sks']) {
+							?><b>Skill Speed:</b> <?= htmlspecialchars($subject['stats']['sks']) ?><br /><?php
+						}
+						if ($subject['stats']['sps']) {
+							?><b>Spell Speed:</b> <?= htmlspecialchars($subject['stats']['sps']) ?><br /><?php
+						}
+					?>
 				</td>
 				<td style="padding: 0px;">
 					<?php
@@ -247,9 +283,7 @@ function render_sim_results($json_results) {
 			<div class="action-list">
 				<?php
 				foreach ($subject['actions'] as $action) {
-					?>
-					<?= htmlspecialchars($action) ?> 
-					<?php
+					echo htmlspecialchars($action).' ';
 				}
 				?>
 			</div>

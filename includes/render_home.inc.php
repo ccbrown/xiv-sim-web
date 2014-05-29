@@ -3,8 +3,6 @@ function render_home() {
 	?>
 	<center>
 		<h1>Welcome!</h1>
-	
-		<a href="?monk">Monk</a> | <a href="?dragoon">Dragoon</a> | <a href="?bard">Bard</a> | <a href="?summoner">Summoner</a> | <a href="?black-mage">Black Mage</a>
 	</center>
 
 	<br /><br />
@@ -27,16 +25,15 @@ function render_home() {
 	
 	<p>Accuracy cap is assumed. I would definitely like to simulate hits and misses, but this is of relatively low priority since it's generally assumed to be the highest priority until capped and the invisible avoidance number that varies from boss to boss isn't well defined or understood.</p>
 	
-	<p>There is no pre-combat phase. Buffs like Aetherflow and Fists of Fire are put up at the beginning of combat. Adding pre-combat conditions is a priority (but not my top priority).</p>
+	<p>There is no pre-combat phase. Buffs like Aetherflow and Fists of Fire are put up at the beginning of combat. Adding pre-combat conditions (or at least putting making summoners start with Aetherflow up) is a pretty high priority.</p>
 	
-	<p>Finally, and most importantly, some of the damage formulae being used aren't very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the Monk formula.</p>
+	<p>Finally, and most importantly, some of the damage formulae being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the Monk formula.</p>
 
 	<b>How do I use it?</b>
 	
 	<p>First, select a class at the top of the page. Then enter your stats and the simulation length, edit the rotation if you'd like, and click the button. You'll then see the results of a single simulated fight.</p>
 	
 	<p>Soon I'll add ways to do other cool things like determine stat weights and simulate entire parties.</p>
-
 	<?php
 }
 ?>

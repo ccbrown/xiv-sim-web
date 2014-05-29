@@ -9,27 +9,17 @@
 <center>
 <div class="wrapper">
 
+<a href="./">Home</a> ; Simulations: <a href="?sim&monk">Monk</a> | <a href="?sim&dragoon">Dragoon</a> | <a href="?sim&bard">Bard</a> | <a href="?sim&summoner">Summoner</a> | <a href="?sim&black-mage">Black Mage</a>
+
+<br /><br />
+
 <?php
 
-$model = NULL;
-
-if (isset($_GET['monk'])) {
-	$model = 'monk';
-} else if (isset($_GET['dragoon'])) {
-	$model = 'dragoon';
-} else if (isset($_GET['bard'])) {
-	$model = 'bard';
-} else if (isset($_GET['summoner'])) {
-	$model = 'summoner';
-} else if (isset($_GET['black-mage'])) {
-	$model = 'black-mage';
-}
-
-if ($model) {
-	require_once 'render_model_page.inc.php';
-	render_model_page($model);
+if (isset($_GET['sim'])) {
+	require_once 'includes/render_sim_input.inc.php';
+	render_sim_input();
 } else {
-	require_once 'render_home.inc.php';
+	require_once 'includes/render_home.inc.php';
 	render_home();
 }
 ?>
