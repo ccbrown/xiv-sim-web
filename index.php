@@ -18,7 +18,7 @@ if (isset($_GET['monk'])) {
 } else if (isset($_GET['dragoon'])) {
 	$model = 'dragoon';
 } else if (isset($_GET['bard'])) {
-	die("Sorry, bard isn't available yet.");
+	$model = 'bard';
 } else if (isset($_GET['summoner'])) {
 	$model = 'summoner';
 } else if (isset($_GET['black-mage'])) {

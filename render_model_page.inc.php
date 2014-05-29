@@ -7,6 +7,7 @@ function render_model_page($model) {
 		$wdmg = isset($_POST['wdmg']) ? intval($_POST['wdmg']) : 0;
 		$wdel = isset($_POST['wdel']) ? floatval($_POST['wdel']) : 3.0;
 		$str  = isset($_POST['str']) ? intval($_POST['str']) : 0;
+		$dex  = isset($_POST['dex']) ? intval($_POST['dex']) : 0;
 		$int  = isset($_POST['int']) ? intval($_POST['int']) : 0;
 		$pie  = isset($_POST['pie']) ? intval($_POST['pie']) : 0;
 		$crit = isset($_POST['crit']) ? intval($_POST['crit']) : 0;
@@ -23,6 +24,8 @@ function render_model_page($model) {
 			$error = "Weapon delay out of bounds.";
 		} else if ($str < 0 || $str > 10000) {
 			$error = "Strength out of bounds.";
+		} else if ($dex < 0 || $dex > 10000) {
+			$error = "Dexterity out of bounds.";
 		} else if ($int < 0 || $int > 10000) {
 			$error = "Intelligence out of bounds.";
 		} else if ($pie < 0 || $pie > 10000) {
@@ -49,7 +52,7 @@ function render_model_page($model) {
 			fwrite($f, $rotation);
 			fclose($f);
 	
-			$command = "./simulator single-json '$model' '$file' 'WDMG=$wdmg WDEL=$wdel STR=$str INT=$int PIE=$pie CRIT=$crit SKS=$sks SPS=$sps DET=$det LEN=$len'";
+			$command = "./simulator single-json '$model' '$file' 'WDMG=$wdmg WDEL=$wdel STR=$str DEX=$dex INT=$int PIE=$pie CRIT=$crit SKS=$sks SPS=$sps DET=$det LEN=$len'";
 			exec($command, $output, $return_code);
 			unlink($file);
 			
@@ -94,6 +97,14 @@ function render_model_page($model) {
 				if ($model == 'monk' || $model == 'dragoon') {
 					?>
 					<tr><td>Strength</td><td><input type="text" name="str" value="<?= field_value('str', 512) ?>" /></td></tr>
+					<tr><td>Critical Hit Rate</td><td><input type="text" name="crit" value="<?= field_value('crit', 486) ?>" /></td></tr>
+					<tr><td>Skill Speed</td><td><input type="text" name="sks" value="<?= field_value('sks', 402) ?>" /></td></tr>
+					<tr><td>Determination</td><td><input type="text" name="det" value="<?= field_value('det', 346) ?>" /></td></tr>
+					<?php
+				}
+				if ($model == 'bard') {
+					?>
+					<tr><td>Dexterity</td><td><input type="text" name="dex" value="<?= field_value('dex', 512) ?>" /></td></tr>
 					<tr><td>Critical Hit Rate</td><td><input type="text" name="crit" value="<?= field_value('crit', 486) ?>" /></td></tr>
 					<tr><td>Skill Speed</td><td><input type="text" name="sks" value="<?= field_value('sks', 402) ?>" /></td></tr>
 					<tr><td>Determination</td><td><input type="text" name="det" value="<?= field_value('det', 346) ?>" /></td></tr>
