@@ -33,7 +33,7 @@ function render_home() {
 				?>
 				<tr>
 					<td><?= htmlspecialchars($id) ?></td>
-					<td class="numeric"><a href="?feature=<?= htmlspecialchars($id) ?>"><b><?= htmlspecialchars($baselineDPS) ?></b></a></td>
+					<td class="numeric"><a href="?feature=<?= htmlspecialchars($id) ?>"><?= htmlspecialchars($baselineDPS) ?></a></td>
 					<td class="numeric"><a href="?feature=<?= urlencode($id) ?>&seed=<?= urlencode($results['worst-seed']) ?>&len=<?= urlencode($results['worst-time'] / 1000000) ?>"><?= htmlspecialchars($results['worst-dps']) ?></a></td>
 					<td class="numeric"><a href="?feature=<?= urlencode($id) ?>&seed=<?= urlencode($results['best-seed']) ?>&len=<?= urlencode($results['best-time'] / 1000000) ?>"><?= htmlspecialchars($results['best-dps']) ?></a></td>
 					<td class="numeric"><?= ($detDPS - $baselineDPS) / $primaryStatGain ?></td>
