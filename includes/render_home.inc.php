@@ -72,7 +72,7 @@ function render_home() {
 	
 	<p>Accuracy cap is assumed. I would definitely like to simulate hits and misses, but this is of relatively low priority since it's generally assumed to be the highest priority until capped and the invisible avoidance number that varies from boss to boss isn't well defined or understood.</p>
 	
-	<p>There is no pre-combat phase. Buffs like Aetherflow and Fists of Fire are put up at the beginning of combat. Adding pre-combat conditions (or at least putting making summoners start with Aetherflow up) is a pretty high priority.</p>
+	<p>There is no pre-combat phase. Buffs like Aetherflow and Fists of Fire are put up at the beginning of combat. Adding pre-combat conditions (or at least making summoners start with Aetherflow up) is a pretty high priority.</p>
 
 	<b>How do I use it?</b>
 	
