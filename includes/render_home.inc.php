@@ -79,6 +79,11 @@ function render_home() {
 	<p>First, select a class at the top of the page. Then enter your stats and the simulation length, edit the rotation if you'd like, and click the button. You'll then see the results of a single simulated fight.</p>
 	
 	<p>Soon I'll add ways to do other cool things like determine stat weights and simulate entire parties.</p>
+	
+	<b>How can I do larger scale simulations?</b>
+	
+	<p>You can't through the website, but the simulator is open source and cross-platform. If you're tech savvy, you can download it from <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>, compile it, and use it directly from the command line of an OS X or Linux machine to do larger scale simulations. Eventually, if there's enough support, I'll likely distribute a desktop application for Windows. It'll take quite a bit of work though and I personally detest doing any sort of software development on Windows.</p>
+	
 	<?php
 }
 ?>
