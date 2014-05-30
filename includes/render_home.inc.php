@@ -56,7 +56,7 @@ function render_home() {
 	
 	<p>Skill and spell speed seem to provide no benefit or even reduce damage per second for summoner, bard, and dragoon. Figuring out what's going on here is currently my top priority. The problem might simply be that the rotations make poor decisions when low on mp or tp. Or it might be a more critical bug.</p>
 	
-	<p>Some of the damage formulae being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the Monk formula.</p>
+	<p>Some of the damage formulae being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the monk formula.</p>
 
 	<p>The min / max dps links are currently broken. They work on my development machine where I generate those simulation results, but on the web server, the seeds produce different results. I'll fix this soon by setting up a new machine with the same environment as the server for running those simulations.</p>
 
@@ -66,7 +66,7 @@ function render_home() {
 	
 	<p>Some abilities haven't been implemented. If there are any additional abilities (or items) in particular that you'd like to see implemented, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. The vast majority of them can be added very quickly.</p>
 
-	<p>Some rotations aren't ideal. I don't play all of these classes. In fact, the only one I play seriously is Monk. If you can improve a rotation, put your improvements in an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. I'll run it through a crap-ton of simulations with varying stats and lengths, and if it puts out higher numbers, I'll make it the default. One rotation in particular that definitely needs more attention is the black mage rotation, because it can currently get stuck in states where it does hardly any dps.</p>
+	<p>Some rotations aren't ideal. I don't play all of these classes. In fact, the only one I play seriously is monk. If you can improve a rotation, put your improvements in an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. I'll run it through a crap-ton of simulations with varying stats and lengths, and if it puts out higher numbers, I'll make it the default. One rotation in particular that definitely needs more attention is the black mage rotation, because it can currently get stuck in states where it does hardly any dps.</p>
 	
 	<p>For the moment, only solo target dummy combat is simulated. Eventually I'll add parameters to give more control over the combat conditions.</p>
 	
