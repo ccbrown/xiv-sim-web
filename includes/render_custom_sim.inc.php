@@ -50,16 +50,9 @@ function render_custom_sim() {
 		require_once 'includes/render_sim_results.inc.php';
 		render_sim_results($sim_results);
 	} else {
-		if (isset($_GET['monk'])) {
-			$preset = 'monk';
-		} else if (isset($_GET['dragoon'])) {
-			$preset = 'dragoon';
-		} else if (isset($_GET['bard'])) {
-			$preset = 'bard';
-		} else if (isset($_GET['summoner'])) {
-			$preset = 'summoner';
-		} else if (isset($_GET['black-mage'])) {
-			$preset = 'black-mage';
+		$presets = array('monk', 'dragoon', 'bard', 'summoner', 'black-mage');
+		if (in_array($_GET['sim'], $presets)) {
+			$preset = $_GET['sim'];
 		} else {
 			$preset = NULL;
 		}

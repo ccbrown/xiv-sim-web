@@ -23,7 +23,7 @@
 <center>
 <div class="wrapper">
 
-<a href="./">Home</a> ; Simulate: <a href="?sim&monk">Monk</a> | <a href="?sim&dragoon">Dragoon</a> | <a href="?sim&bard">Bard</a> | <a href="?sim&summoner">Summoner</a> | <a href="?sim&black-mage">Black Mage</a>
+<a href="./">Home</a> ; Simulate: <a href="?sim=monk">Monk</a> | <a href="?sim=dragoon">Dragoon</a> | <a href="?sim=bard">Bard</a> | <a href="?sim=summoner">Summoner</a> | <a href="?sim=black-mage">Black Mage</a>
 
 <br /><br />
 
