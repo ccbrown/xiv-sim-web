@@ -1,5 +1,5 @@
 <?php
-function render_sim_input() {
+function render_custom_sim() {
 	$error = NULL;
 	$sim_results = NULL;
 	

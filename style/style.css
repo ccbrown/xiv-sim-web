@@ -39,6 +39,10 @@ td, th {
 	padding: 20px;
 }
 
+.footer {
+	margin-bottom: 20px;
+}
+
 .framed-box {
 	background-color: #f0f0f0;
 	border: 1px solid #c0c0c0;
@@ -51,10 +55,17 @@ td, th {
 }
 
 .info-table {
-	padding: 10px;
 	width: 100%;
 	background-color: #ffffff;
 	border: 1px solid #c0c0c0;
+}
+
+.info-table thead tr {
+	background-color: #f8f8f8;
+}
+
+.info-table tbody tr:hover {
+	background-color: #f8f8f8;
 }
 
 .info-table td {

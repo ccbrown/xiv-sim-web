@@ -2,9 +2,50 @@
 function render_home() {
 	?>
 	<center>
-		<h1>Welcome!</h1>
+		<h1>xiv-sim</h1>
 	</center>
-
+	
+	<table class="info-table">
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th class="numeric">Avg DPS</th>
+				<th class="numeric">Min DPS</th>
+				<th class="numeric">Max DPS</th>
+				<th class="numeric">DET Value</th>
+				<th class="numeric">CRT Value</th>
+				<th class="numeric">SKS/SPS Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+			require_once 'featured_sims.inc.php';
+			$featured = featured_sims();
+			foreach ($featured as $id => $sim) {
+				$results = json_decode($sim['results'], true);
+				$baselineDPS = $results['damage'] / ($results['time'] / 1000000);
+				$primaryStat = isset($results['scaling']['str']) ? 'str' : (isset($results['scaling']['dex']) ? 'dex' : 'int');
+				$primaryStatDPS = $results['scaling'][$primaryStat]['damage'] / ($results['scaling'][$primaryStat]['time'] / 1000000);
+				$primaryStatGain = $primaryStatDPS - $baselineDPS;
+				$detDPS = $results['scaling']['det']['damage'] / ($results['scaling']['det']['time'] / 1000000);
+				$crtDPS = $results['scaling']['crt']['damage'] / ($results['scaling']['crt']['time'] / 1000000);
+				$spdDPS = isset($results['scaling']['sks']) ? ($results['scaling']['sks']['damage'] / ($results['scaling']['sks']['time'] / 1000000)) : ($results['scaling']['sps']['damage'] / ($results['scaling']['sps']['time'] / 1000000));
+				?>
+				<tr>
+					<td><?= htmlspecialchars($id) ?></td>
+					<td class="numeric"><a href="?feature=<?= htmlspecialchars($id) ?>"><b><?= htmlspecialchars($baselineDPS) ?></b></a></td>
+					<td class="numeric"><a href="?feature=<?= urlencode($id) ?>&seed=<?= urlencode($results['worst-seed']) ?>&len=<?= urlencode($results['worst-time'] / 1000000) ?>"><?= htmlspecialchars($results['worst-dps']) ?></a></td>
+					<td class="numeric"><a href="?feature=<?= urlencode($id) ?>&seed=<?= urlencode($results['best-seed']) ?>&len=<?= urlencode($results['best-time'] / 1000000) ?>"><?= htmlspecialchars($results['best-dps']) ?></a></td>
+					<td class="numeric"><?= ($detDPS - $baselineDPS) / $primaryStatGain ?></td>
+					<td class="numeric"><?= ($crtDPS - $baselineDPS) / $primaryStatGain ?></td>
+					<td class="numeric"><?= ($spdDPS - $baselineDPS) / $primaryStatGain ?></td>
+				</tr>
+				<?php
+			}
+			?>
+		</tbody>
+	</table>
+	
 	<br /><br />
 	
 	<b>What is this?</b>
