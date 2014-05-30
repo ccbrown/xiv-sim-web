@@ -56,7 +56,7 @@ function render_home() {
 	
 	<p>Skill and spell speed seem to provide no benefit or even reduce damage per second for summoner, bard, and dragoon. Figuring out what's going on here is currently my top priority. The problem might simply be that the rotations make poor decisions when low on mp or tp. Or it might be a more critical bug.</p>
 	
-	<p>Some of the damage formulae being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the monk formula.</p>
+	<p>Some of the damage formulas being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the monk formula.</p>
 
 	<p>The min / max dps links are currently broken. They work on my development machine where I generate those simulation results, but on the web server, the seeds produce different results. I'll fix this soon by setting up a new machine with the same environment as the server for running those simulations.</p>
 
