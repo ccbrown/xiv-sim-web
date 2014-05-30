@@ -54,7 +54,11 @@ function render_home() {
 
 	<b>How accurate is it?</b>
 	
-	<p>Currently, I believe all of the core combat mechanics are nearly entirely accurate. If there's something off, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a> and I'll fix it as soon as possible.</p>
+	<p>Skill and spell speed seem to provide no benefit or even reduce damage per second in too many circumstances. Under no conditions should having more skill or spell speed reduce overall damage. Figuring out what's going on here is currently my top priority.</p>
+	
+	<p>Some of the damage formulae being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the Monk formula.</p>
+
+	<p>Aside from whatever's causing that, I believe all of the core combat mechanics are nearly entirely accurate. If there's something off, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a> and I'll fix it as soon as possible.</p>
 	
 	<p>The abilities that are implemented are also believed to be accurate, but not having all of the jobs at max-level, I can't confirm that the in-game effects are exactly what the tooltip texts have led me to believe. So I have to make a fair amount of assumptions. If any abilities don't seem to be functioning properly, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>.
 	
@@ -67,8 +71,6 @@ function render_home() {
 	<p>Accuracy cap is assumed. I would definitely like to simulate hits and misses, but this is of relatively low priority since it's generally assumed to be the highest priority until capped and the invisible avoidance number that varies from boss to boss isn't well defined or understood.</p>
 	
 	<p>There is no pre-combat phase. Buffs like Aetherflow and Fists of Fire are put up at the beginning of combat. Adding pre-combat conditions (or at least putting making summoners start with Aetherflow up) is a pretty high priority.</p>
-	
-	<p>Finally, and most importantly, some of the damage formulae being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the Monk formula.</p>
 
 	<b>How do I use it?</b>
 	
