@@ -58,13 +58,15 @@ function render_home() {
 	
 	<p>Some of the damage formulae being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the Monk formula.</p>
 
-	<p>Aside from whatever's causing that, I believe all of the core combat mechanics are nearly entirely accurate. If there's something off, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a> and I'll fix it as soon as possible.</p>
+	<p>The min / max dps links are currently broken. They work on my development machine where I generate those simulation results, but on the web server, the seeds produce different results. I'll fix this soon by setting up a new machine with the same environment as the server for running those simulations.</p>
+
+	<p>Aside from whatever may be causing the skill/spell speed issue, I believe all of the core combat mechanics are nearly entirely accurate. If there's something off, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a> and I'll fix it as soon as possible.</p>
 	
 	<p>The abilities that are implemented are also believed to be accurate, but not having all of the jobs at max-level, I can't confirm that the in-game effects are exactly what the tooltip texts have led me to believe. So I have to make a fair amount of assumptions. If any abilities don't seem to be functioning properly, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>.
 	
 	<p>Some abilities haven't been implemented. If there are any additional abilities (or items) in particular that you'd like to see implemented, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. The vast majority of them can be added very quickly.</p>
 
-	<p>Some rotations aren't ideal. I don't play all of these classes. In fact, the only one I play seriously is Monk. If you can improve a rotation, put your improvements in an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. I'll run it through a crap-ton of simulations with varying stats and lengths, and if it puts out higher numbers, I'll make it the default.</p>
+	<p>Some rotations aren't ideal. I don't play all of these classes. In fact, the only one I play seriously is Monk. If you can improve a rotation, put your improvements in an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. I'll run it through a crap-ton of simulations with varying stats and lengths, and if it puts out higher numbers, I'll make it the default. One rotation in particular that definitely needs more attention is the black mage rotation, because it can currently get stuck in states where it does hardly any dps.</p>
 	
 	<p>For the moment, only solo target dummy combat is simulated. Eventually I'll add parameters to give more control over the combat conditions.</p>
 	
