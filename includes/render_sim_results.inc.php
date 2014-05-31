@@ -18,8 +18,12 @@ function render_sim_scaling($scaling, $baselineDPS) {
 		</thead>
 		<tbody>
 			<?php
-			$primaryStat = isset($scaling['str']) ? 'str' : (isset($scaling['dex']) ? 'dex' : 'int');
-			$primaryStatDPSGain = $scaling[$primaryStat]['damage'] / ($scaling[$primaryStat]['time'] / 1000000) - $baselineDPS;
+			$primaryStatGain = 0;
+			foreach (array('str', 'dex', 'int') as $stat) {
+				if (isset($scaling[$stat])) {
+					$primaryStatGain = max($primaryStatGain, $scaling[$stat]['damage'] / ($scaling[$stat]['time'] / 1000000) - $baselineDPS);
+				}
+			}
 			foreach ($scaling as $stat => $results) {
 				$gain = $results['damage'] / ($results['time'] / 1000000) - $baselineDPS;
 				?>
@@ -28,7 +32,7 @@ function render_sim_scaling($scaling, $baselineDPS) {
 					<td class="numeric"><?= ($results['amount'] >= 0 ? '+' : '').htmlspecialchars($results['amount']) ?></td>
 					<td class="numeric"><?= htmlspecialchars($results['iterations']) ?></td>
 					<td class="numeric"><?= htmlspecialchars($gain) ?></td>
-					<td class="numeric"><?= $gain / $primaryStatDPSGain ?></td>
+					<td class="numeric"><?= $gain / $primaryStatGain ?></td>
 				</tr>
 				<?php
 			}

@@ -24,9 +24,12 @@ function render_home() {
 			foreach ($featured as $id => $sim) {
 				$results = json_decode($sim['results'], true);
 				$baselineDPS = $results['damage'] / ($results['time'] / 1000000);
-				$primaryStat = isset($results['scaling']['str']) ? 'str' : (isset($results['scaling']['dex']) ? 'dex' : 'int');
-				$primaryStatDPS = $results['scaling'][$primaryStat]['damage'] / ($results['scaling'][$primaryStat]['time'] / 1000000);
-				$primaryStatGain = $primaryStatDPS - $baselineDPS;
+				$primaryStatGain = 0;
+				foreach (array('str', 'dex', 'int') as $stat) {
+					if (isset($results['scaling'][$stat])) {
+						$primaryStatGain = max($primaryStatGain, $results['scaling'][$stat]['damage'] / ($results['scaling'][$stat]['time'] / 1000000) - $baselineDPS);
+					}
+				}
 				$detDPS = $results['scaling']['det']['damage'] / ($results['scaling']['det']['time'] / 1000000);
 				$crtDPS = $results['scaling']['crt']['damage'] / ($results['scaling']['crt']['time'] / 1000000);
 				$spdDPS = isset($results['scaling']['sks']) ? ($results['scaling']['sks']['damage'] / ($results['scaling']['sks']['time'] / 1000000)) : ($results['scaling']['sps']['damage'] / ($results['scaling']['sps']['time'] / 1000000));
