@@ -9,6 +9,8 @@ function render_custom_sim() {
 	
 		$config = $_POST['config'];
 		$rotation = $_POST['rotation'];
+		
+		$load = sys_getloadavg();
 
 		if ($len < 1 || $len > 30 * 60) {
 			$error = "Simulation length out of bounds.";
@@ -16,7 +18,7 @@ function render_custom_sim() {
 			$error = "Configuration too long.";
 		} else if (strlen($rotation) > 4000) {
 			$error = "Rotation too long.";
-		} else if (sys_getloadavg()[0] > 16) {
+		} else if ($load[0] > 16) {
 			$error = "Server overloaded. Please try again in a moment.";
 		}
 	

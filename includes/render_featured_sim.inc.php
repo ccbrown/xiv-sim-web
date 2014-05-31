@@ -4,11 +4,9 @@ function render_featured_sim() {
 	
 	require_once 'featured_sims.inc.php';
 	$sims = featured_sims();
-	
+		
 	if (!isset($sims[$identifier])) {
 		die('Invalid identifier.');
-	} else if (sys_getloadavg()[0] > 16) {
-		die('Server overloaded. Please try again in a moment.');
 	}
 	
 	$sim = $sims[$identifier];
@@ -21,6 +19,11 @@ function render_featured_sim() {
 	if ($len && $seed) {
 		if ($len < 1 || $len > 30 * 60) {
 			die('Invalid length.');
+		}
+		
+		$load = sys_getloadavg();
+		if ($load[0] > 16) {
+			die('Server overloaded. Please try again in a moment.');
 		}
 
 		$command = "./simulator single-json ".escapeshellarg($sim['subject-file'])." ".escapeshellarg($sim['rotation-file'])." ".escapeshellarg($len)." ".escapeshellarg($seed);
