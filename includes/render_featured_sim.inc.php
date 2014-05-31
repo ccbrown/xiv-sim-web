@@ -7,11 +7,13 @@ function render_featured_sim() {
 	
 	if (!isset($sims[$identifier])) {
 		die('Invalid identifier.');
+	} else if (sys_getloadavg()[0] > 10) {
+		die('Server overloaded. Please try again in a moment.');
 	}
 	
 	$sim = $sims[$identifier];
 
-	$len  = isset($_GET['len']) ? intval($_GET['len']) : 0;
+	$len  = (isset($_GET['len']) && is_numeric($_GET['len'])) ? $_GET['len'] : 0;
 	$seed = (isset($_GET['seed']) && is_numeric($_GET['seed'])) ? $_GET['seed'] : 0;
 
 	$sim_results = NULL;

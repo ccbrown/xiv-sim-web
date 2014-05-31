@@ -58,8 +58,6 @@ function render_home() {
 	
 	<p>Some of the damage formulas being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the monk formula.</p>
 
-	<p>The min / max dps links are currently broken. They work on my development machine where I generate those simulation results, but on the web server, the seeds produce different results. I'll fix this soon by setting up a new machine with the same environment as the server for running those simulations.</p>
-
 	<p>I believe all of the core combat mechanics are nearly entirely accurate. If there's something off, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a> and I'll fix it as soon as possible.</p>
 	
 	<p>The abilities that are implemented are also believed to be accurate, but not having all of the jobs at max-level, I can't confirm that the in-game effects are exactly what the tooltip texts have led me to believe. So I have to make a fair amount of assumptions. If any abilities don't seem to be functioning properly, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>.
@@ -83,6 +81,10 @@ function render_home() {
 	<b>How can I do larger scale simulations?</b>
 	
 	<p>You can't through the website, but the simulator is open source and cross-platform. If you're tech savvy, you can download it from <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>, compile it, and use it directly from the command line of an OS X or Linux machine to do larger scale simulations. Eventually, if there's enough support, I'll likely distribute a desktop application for Windows. It'll take quite a bit of work though and I personally detest doing any sort of software development on Windows.</p>
+	
+	<b>What if I have other questions?</b>
+	
+	<p>If you just have any other questions or comments or anything of the sort, you can come to our <a href="http://ffxivguild.net/forums" target="_blank">forums</a> to ask them.</p>
 	
 	<?php
 }

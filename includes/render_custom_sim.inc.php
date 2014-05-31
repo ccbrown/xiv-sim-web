@@ -4,7 +4,7 @@ function render_custom_sim() {
 	$sim_results = NULL;
 	
 	if (isset($_POST['single'])) {
-		$len   = isset($_POST['len']) ? intval($_POST['len']) : 0;
+		$len   = (isset($_POST['len']) && is_numeric($_POST['len'])) ? $_POST['len'] : 0;
 		$seed  = (isset($_POST['seed']) && is_numeric($_POST['seed'])) ? $_POST['seed'] : 0;
 	
 		$config = $_POST['config'];
@@ -16,6 +16,8 @@ function render_custom_sim() {
 			$error = "Configuration too long.";
 		} else if (strlen($rotation) > 4000) {
 			$error = "Rotation too long.";
+		} else if (sys_getloadavg()[0] > 10) {
+			$error = "Server overloaded. Please try again in a moment.";
 		}
 	
 		if (!$error) {
