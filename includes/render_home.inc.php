@@ -80,7 +80,7 @@ function render_home() {
 	
 	<b>How can I do larger scale simulations?</b>
 	
-	<p>You can't through the website, but the simulator is open source and cross-platform. If you're tech savvy, you can download it from <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>, compile it, and use it directly from the command line of an OS X or Linux machine to do larger scale simulations. Eventually, if there's enough support, I'll likely distribute a desktop application for Windows. It'll take quite a bit of work though and I personally detest doing any sort of software development on Windows.</p>
+	<p>You can't through the website, but the simulator is open source and cross-platform. If you're tech savvy, you can download it from <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>, compile it, and use it directly from the command line of an OS X or Linux machine to do larger scale simulations (It shouldn't take too much to get it to compile on Windows, but I haven't done that yet.). Eventually, if there's enough support, I'll likely distribute a desktop application for Windows.</p>
 	
 	<b>What if I have other questions?</b>
 	
