@@ -2,7 +2,7 @@
 <head>
 	<title>FFXIV Simulation</title>
 
-	<meta name=”description” content=”Open source FFXIV combat simulator for theorycrafters and min-maxers with programmable rotations and detailed graphs.”>
+	<meta name="description" content="Open source FFXIV combat simulator for theorycrafters and min-maxers with programmable rotations and detailed graphs.">
 
 	<link href="./style/style.css" rel="stylesheet" type="text/css" />
 	<link href="./style/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />

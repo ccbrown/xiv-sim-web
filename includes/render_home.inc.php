@@ -54,7 +54,7 @@ function render_home() {
 
 	<b>How accurate is it?</b>
 	
-	<p>Skill and spell speed seem to provide no benefit or even reduce damage per second for summoner and bard. Figuring out what's going on here is currently my top priority. The problem might simply be that the rotations make poor decisions when low on mp or tp. Or it might be a more critical bug.</p>
+	<p>The skill and spell speed values for some classes are really unexpected. Figuring out what's going on here is currently my top priority. The problem might simply be that the rotations just need to be improved. Or it might be a more critical bug.</p>
 	
 	<p>Some of the damage formulas being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the monk formula.</p>
 
