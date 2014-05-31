@@ -64,7 +64,7 @@ function render_home() {
 	
 	<p>Some abilities haven't been implemented. If there are any additional abilities (or items) in particular that you'd like to see implemented, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. The vast majority of them can be added very quickly.</p>
 
-	<p>Some rotations aren't ideal. I don't play all of these classes. In fact, the only one I play seriously is monk. If you can improve a rotation, put your improvements in an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. I'll run it through a crap-ton of simulations with varying stats and lengths, and if it puts out higher numbers, I'll make it the default. One rotation in particular that definitely needs more attention is the black mage rotation, because it can currently get stuck in states where it does hardly any dps.</p>
+	<p>Some rotations aren't ideal. I don't play all of these classes. In fact, the only one I play seriously is monk. If you can improve a rotation, put your improvements in an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. I'll run it through a crap-ton of simulations with varying stats and lengths, and if it puts out higher numbers, I'll make it the default.</p>
 	
 	<p>For the moment, only solo target dummy combat is simulated. Eventually I'll add parameters to give more control over the combat conditions.</p>
 	
