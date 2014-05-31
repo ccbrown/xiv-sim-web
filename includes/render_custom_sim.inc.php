@@ -16,7 +16,7 @@ function render_custom_sim() {
 			$error = "Configuration too long.";
 		} else if (strlen($rotation) > 4000) {
 			$error = "Rotation too long.";
-		} else if (sys_getloadavg()[0] > 10) {
+		} else if (sys_getloadavg()[0] > 16) {
 			$error = "Server overloaded. Please try again in a moment.";
 		}
 	

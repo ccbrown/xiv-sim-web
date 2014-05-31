@@ -7,7 +7,7 @@ function render_featured_sim() {
 	
 	if (!isset($sims[$identifier])) {
 		die('Invalid identifier.');
-	} else if (sys_getloadavg()[0] > 10) {
+	} else if (sys_getloadavg()[0] > 16) {
 		die('Server overloaded. Please try again in a moment.');
 	}
 	
