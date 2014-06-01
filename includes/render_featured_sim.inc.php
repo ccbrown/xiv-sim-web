@@ -26,7 +26,7 @@ function render_featured_sim() {
 			die('Server overloaded. Please try again in a moment.');
 		}
 
-		$command = "./simulator single-json ".escapeshellarg($sim['subject-file'])." ".escapeshellarg($sim['rotation-file'])." ".escapeshellarg($len)." ".escapeshellarg($seed);
+		$command = "./simulator single-json --length ".escapeshellarg($len)." --seed ".escapeshellarg($seed)." ".escapeshellarg($sim['subject-file'])." ".escapeshellarg($sim['rotation-file']);
 		exec($command, $output, $return_code);
 		
 		if ($return_code) {

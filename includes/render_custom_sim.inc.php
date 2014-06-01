@@ -37,7 +37,7 @@ function render_custom_sim() {
 			fwrite($f, $rotation);
 			fclose($f);
 	
-			$command = "./simulator single-json '$configFile' '$rotationFile' $len".((isset($_POST['seed']) && $_POST['seed']) ? " $seed" : '');
+			$command = "./simulator single-json --length $len ".((isset($_POST['seed']) && $_POST['seed']) ? "--seed $seed " : '')."'$configFile' '$rotationFile'";
 			exec($command, $output, $return_code);
 			unlink($configFile);
 			unlink($rotationFile);
