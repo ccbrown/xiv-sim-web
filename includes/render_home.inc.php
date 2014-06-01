@@ -57,7 +57,7 @@ function render_home() {
 
 	<b>How accurate is it?</b>
 	
-	<p>The skill and spell speed values for some classes are really unexpected. Figuring out what's going on here is currently my top priority. The problem might simply be that the rotations just need to be improved. Or it might be a more critical bug.</p>
+	<p>The skill and spell speed values can be misleading for classes that spend significant portions of the simulations mp or tp starved. When a player's limiting factor is mp or tp, and not time, skill and spell speed don't really make any difference in overall throughput.</p>
 	
 	<p>Some of the damage formulas being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the monk formula.</p>
 
