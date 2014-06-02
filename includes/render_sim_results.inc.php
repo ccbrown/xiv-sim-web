@@ -109,7 +109,7 @@ function render_sim_results($json_results, $feature = NULL) {
 		<?php
 	}
 	?>
-	<b>Total Simulated Time:</b> <?= htmlspecialchars($results['time'] / 1000000 / 60) ?> minutes<br />
+	<b>Simulated Time:</b> <?= htmlspecialchars($results['time'] / 1000000 / 60) ?> minutes<br />
 
 	<br />
 
