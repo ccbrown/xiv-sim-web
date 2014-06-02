@@ -47,6 +47,7 @@ td, th {
 	background-color: #f0f0f0;
 	border: 1px solid #c0c0c0;
 	padding: 20px;
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
@@ -82,4 +83,8 @@ td, th {
 	padding: 10px;
 	font-size: 9pt;
 	margin: 10px;
+}
+
+.right {
+	text-align: right;
 }

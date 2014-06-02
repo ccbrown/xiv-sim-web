@@ -102,7 +102,14 @@ function render_sim_results($json_results, $feature = NULL) {
 		<?php
 	}
 	?>
-	<b>Simulated Time:</b> <?= htmlspecialchars($results['time'] / 1000000 / 60) ?> minutes<br />
+	<?php
+	if (isset($results['min-time'], $results['max-time'])) {
+		?>
+		<b>Simulation Times:</b> <?= $results['min-time'] / 1000000 / 60 ?> - <?= $results['max-time'] / 1000000 / 60 ?> minutes<br />
+		<?php
+	}
+	?>
+	<b>Total Simulated Time:</b> <?= htmlspecialchars($results['time'] / 1000000 / 60) ?> minutes<br />
 
 	<br />
 

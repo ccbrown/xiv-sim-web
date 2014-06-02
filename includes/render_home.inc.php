@@ -5,49 +5,60 @@ function render_home() {
 		<h1>xiv-sim</h1>
 	</center>
 	
-	<table class="info-table">
-		<thead>
-			<tr>
-				<th>&nbsp;</th>
-				<th class="numeric">Avg DPS</th>
-				<th class="numeric">Min DPS</th>
-				<th class="numeric">Max DPS</th>
-				<th class="numeric">DET Value</th>
-				<th class="numeric">CRT Value</th>
-				<th class="numeric">SKS/SPS Value</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-			require_once 'featured_sims.inc.php';
-			$featured = featured_sims();
-			foreach ($featured as $id => $sim) {
-				$results = json_decode($sim['results'], true);
-				$baselineDPS = $results['damage'] / ($results['time'] / 1000000);
-				$primaryStatGain = 0;
-				foreach (array('str', 'dex', 'int') as $stat) {
-					if (isset($results['scaling'][$stat])) {
-						$primaryStatGain = max($primaryStatGain, $results['scaling'][$stat]['damage'] / ($results['scaling'][$stat]['time'] / 1000000) - $baselineDPS);
+	<?php
+	require_once 'featured_sims.inc.php';
+	$featured = featured_sims();
+	for ($i = 0; $i < 2; ++$i) {
+		?>
+		<div class="framed-box">
+			<center><h3><?= ($i ? 'Sustained Simulations (6 - 11 minutes)' : 'Short Simulations (2.5 - 4 minutes)') ?></h3></center>
+			<table class="info-table">
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th class="numeric">Avg DPS</th>
+						<th class="numeric">Min DPS</th>
+						<th class="numeric">Max DPS</th>
+						<th class="numeric">DET Value</th>
+						<th class="numeric">CRT Value</th>
+						<th class="numeric">SKS/SPS Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					foreach ($featured as $id => $sim) {
+						if (($i == 0 && strstr($id, 'short')) || ($i == 1 && strstr($id, 'sustained'))) {
+							$results = json_decode($sim['results'], true);
+							$baselineDPS = $results['damage'] / ($results['time'] / 1000000);
+							$primaryStatGain = 0;
+							foreach (array('str', 'dex', 'int') as $stat) {
+								if (isset($results['scaling'][$stat])) {
+									$primaryStatGain = max($primaryStatGain, $results['scaling'][$stat]['damage'] / ($results['scaling'][$stat]['time'] / 1000000) - $baselineDPS);
+								}
+							}
+							$detDPS = $results['scaling']['det']['damage'] / ($results['scaling']['det']['time'] / 1000000);
+							$crtDPS = $results['scaling']['crt']['damage'] / ($results['scaling']['crt']['time'] / 1000000);
+							$spdDPS = isset($results['scaling']['sks']) ? ($results['scaling']['sks']['damage'] / ($results['scaling']['sks']['time'] / 1000000)) : ($results['scaling']['sps']['damage'] / ($results['scaling']['sps']['time'] / 1000000));
+							?>
+							<tr>
+								<td><?= htmlspecialchars($id) ?></td>
+								<td class="numeric"><a href="?feature=<?= htmlspecialchars($id) ?>"><?= htmlspecialchars($baselineDPS) ?></a></td>
+								<td class="numeric"><a href="?feature=<?= urlencode($id) ?>&seed=<?= urlencode($results['worst-seed']) ?>&len=<?= urlencode($results['worst-time'] / 1000000) ?>"><?= htmlspecialchars($results['worst-dps']) ?></a></td>
+								<td class="numeric"><a href="?feature=<?= urlencode($id) ?>&seed=<?= urlencode($results['best-seed']) ?>&len=<?= urlencode($results['best-time'] / 1000000) ?>"><?= htmlspecialchars($results['best-dps']) ?></a></td>
+								<td class="numeric"><?= ($detDPS - $baselineDPS) / $primaryStatGain ?></td>
+								<td class="numeric"><?= ($crtDPS - $baselineDPS) / $primaryStatGain ?></td>
+								<td class="numeric"><?= ($spdDPS - $baselineDPS) / $primaryStatGain ?></td>
+							</tr>
+							<?php
+						}
 					}
-				}
-				$detDPS = $results['scaling']['det']['damage'] / ($results['scaling']['det']['time'] / 1000000);
-				$crtDPS = $results['scaling']['crt']['damage'] / ($results['scaling']['crt']['time'] / 1000000);
-				$spdDPS = isset($results['scaling']['sks']) ? ($results['scaling']['sks']['damage'] / ($results['scaling']['sks']['time'] / 1000000)) : ($results['scaling']['sps']['damage'] / ($results['scaling']['sps']['time'] / 1000000));
-				?>
-				<tr>
-					<td><?= htmlspecialchars($id) ?></td>
-					<td class="numeric"><a href="?feature=<?= htmlspecialchars($id) ?>"><?= htmlspecialchars($baselineDPS) ?></a></td>
-					<td class="numeric"><a href="?feature=<?= urlencode($id) ?>&seed=<?= urlencode($results['worst-seed']) ?>&len=<?= urlencode($results['worst-time'] / 1000000) ?>"><?= htmlspecialchars($results['worst-dps']) ?></a></td>
-					<td class="numeric"><a href="?feature=<?= urlencode($id) ?>&seed=<?= urlencode($results['best-seed']) ?>&len=<?= urlencode($results['best-time'] / 1000000) ?>"><?= htmlspecialchars($results['best-dps']) ?></a></td>
-					<td class="numeric"><?= ($detDPS - $baselineDPS) / $primaryStatGain ?></td>
-					<td class="numeric"><?= ($crtDPS - $baselineDPS) / $primaryStatGain ?></td>
-					<td class="numeric"><?= ($spdDPS - $baselineDPS) / $primaryStatGain ?></td>
-				</tr>
-				<?php
-			}
-			?>
-		</tbody>
-	</table>
+					?>
+				</tbody>
+			</table>
+		</div>
+		<?php
+	}
+	?>
 	
 	<br /><br />
 	
@@ -69,13 +80,13 @@ function render_home() {
 
 	<p>Some rotations aren't ideal. I don't play all of these classes. In fact, the only one I play seriously is monk. If you can improve a rotation, put your improvements in an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a>. I'll run it through a crap-ton of simulations with varying stats and lengths, and if it puts out higher numbers, I'll make it the default.</p>
 	
-	<p>For the moment, only solo target dummy combat is simulated. Eventually I'll add parameters to give more control over the combat conditions.</p>
+	<p>For the moment, only target dummy combat is simulated. Eventually I'll add parameters to give more control over the combat conditions.</p>
 	
 	<p>Accuracy cap is assumed. I would definitely like to simulate hits and misses, but this is of relatively low priority since it's generally assumed to be the highest priority until capped and the invisible avoidance number that varies from boss to boss isn't well defined or understood.</p>
+
+	<p>Obviously, several jobs are missing. I will be adding those soon, but I'm prioritizing the pure dps jobs.</p>
 	
-	<p>There is no pre-combat phase. Buffs like Aetherflow and Fists of Fire are put up at the beginning of combat. Adding pre-combat conditions (or at least making summoners start with Aetherflow up) is a pretty high priority.</p>
-	
-	<p>Obviously, several jobs are missing. Once I'm satisfied with the state of the pure dps jobs, I'll be adding the others (and maybe even the jobless classes).</p>
+	<p>There may be other issues open on <a href="https://github.com/ccbrown/xiv-sim/issues?state=open" target="_blank">Github</a> that I haven't bothered updating this page with.</p>
 
 	<b>How do I use it?</b>
 	
