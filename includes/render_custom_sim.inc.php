@@ -59,8 +59,12 @@ function render_custom_sim() {
 	}
 
 	if ($newPreset && count($actors) < 8) {
-		for ($number = 1; isset($actors["player-{$number}"]); ++$number);
-		$actors["player-{$number}"] = array(
+		$newId = "player";
+		if (isset($actors[$newId])) {
+			for ($number = 2; isset($actors["player-{$number}"]); ++$number);
+			$newId = "player-{$number}";
+		}
+		$actors[$newId] = array(
 			'config' => file_get_contents("subjects/{$presets[$newPreset]['config']}.conf"),
 			'rotation' => file_get_contents("rotations/{$presets[$newPreset]['rotation']}.sl"),
 		);
