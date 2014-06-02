@@ -220,6 +220,10 @@ function render_custom_sim() {
 			</div>
 		</form>
 
+		<script>
+			$('input,select').keypress(function(event) { return event.keyCode != 13; });
+		</script>
+
 		</center>
 		<?php
 	}
