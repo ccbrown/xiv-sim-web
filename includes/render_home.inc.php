@@ -68,8 +68,6 @@ function render_home() {
 
 	<b>How accurate is it?</b>
 	
-	<p>The skill and spell speed values can be misleading for classes that spend significant portions of the simulations mp or tp starved. When a player's limiting factor is mp or tp, and not time, skill and spell speed don't really make any difference in overall throughput.</p>
-	
 	<p>Some of the damage formulas being used might not be very accurate. Prioritizing the coding over the statistical analysis, I haven't spent much time refining them yet. Instead, I've used what I could find via a few Google searches. The only formula I believe to be accurate enough to trust the output for is the monk formula.</p>
 
 	<p>I believe all of the core combat mechanics are nearly entirely accurate. If there's something off, create an issue on <a href="https://github.com/ccbrown/xiv-sim" target="_blank">Github</a> and I'll fix it as soon as possible.</p>
