@@ -159,6 +159,8 @@ function render_custom_sim() {
 		
 		<br />
 
+		<script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+
 		<form action="" method="post">
 			<?php
 			foreach ($actors as $id => $actor) {
@@ -175,14 +177,33 @@ function render_custom_sim() {
 								<b>Stats</b><br />
 								<small>Type in your stats here.</small>
 							</td>
-							<td><textarea name="actor-<?= htmlspecialchars($id) ?>-config" rows="12" cols="100"><?= htmlspecialchars($actor['config']) ?></textarea></td>
+							<td><textarea name="actor-<?= htmlspecialchars($id) ?>-config" class="config-editor"><?= htmlspecialchars($actor['config']) ?></textarea></td>
 						</tr>
 						<tr>
 							<td>
 								<b>Rotation</b><br />
 								<small>If you want to be adventurous, you can program your rotation here.</small>
 							</td>
-							<td><textarea name="actor-<?= htmlspecialchars($id) ?>-rotation" rows="20" cols="100"><?= htmlspecialchars($actor['rotation']) ?></textarea></td>
+							<td>
+								<div id="actor-<?= htmlspecialchars($id) ?>-rotation-editor" class="rotation-editor" style="display: none;"><?= htmlspecialchars($actor['rotation']) ?></div>
+								<textarea id="actor-<?= htmlspecialchars($id) ?>-rotation-textarea" name="actor-<?= htmlspecialchars($id) ?>-rotation" class="rotation-editor"><?= htmlspecialchars($actor['rotation']) ?></textarea>
+								<script>
+									$(function() {
+										var editor = ace.edit("actor-<?= htmlspecialchars($id) ?>-rotation-editor");
+										editor.setTheme("ace/theme/chrome");
+										editor.getSession().setMode("ace/mode/c_cpp");
+
+										var textarea = $("#actor-<?= htmlspecialchars($id) ?>-rotation-textarea");
+										$("#actor-<?= htmlspecialchars($id) ?>-rotation-editor").css('display', 'block');
+										textarea.css('display', 'none');
+										editor.getSession().setValue(textarea.val());
+										
+										textarea.closest('form').submit(function() {
+											textarea.val(editor.getSession().getValue());
+										})
+									});
+								</script>
+							</td>
 						</tr>
 					</table>
 					<div class="right"><input type="submit" name="actor-<?= htmlspecialchars($id) ?>-remove" value="Remove Party Member" /></div>

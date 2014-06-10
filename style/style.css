@@ -88,3 +88,18 @@ td, th {
 .right {
 	text-align: right;
 }
+
+input, textarea {
+	border: 1px solid #b8b8b8;
+}
+
+.config-editor {
+	width: 800px;
+	height: 180px;
+}
+
+.rotation-editor {
+	width: 800px;
+	height: 400px;
+	border: 1px solid #b8b8b8;
+}
