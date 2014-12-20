@@ -30,7 +30,7 @@
 
 <br /><br />
 
-<a href="./">Home</a> ; Simulate: <a href="?sim&preset=monk-bis">Monk</a> | <a href="?sim&preset=dragoon-bis">Dragoon</a> | <a href="?sim&preset=bard-bis">Bard</a> | <a href="?sim&preset=summoner-bis">Summoner</a> | <a href="?sim&preset=black-mage-bis">Black Mage</a> | <a href="?sim">Party</a>
+<a href="./">Home</a> ; Simulate: <a href="?sim&preset=monk-bis">Monk</a> | <a href="?sim&preset=dragoon-bis">Dragoon</a> | <a href="?sim&preset=ninja-bis">Ninja</a> | <a href="?sim&preset=bard-bis">Bard</a> | <a href="?sim&preset=summoner-bis">Summoner</a> | <a href="?sim&preset=black-mage-bis">Black Mage</a> | <a href="?sim">Party</a>
 
 <br /><br />
 

@@ -11,6 +11,10 @@ function render_custom_sim() {
 			'config' => 'dragoon-bis',
 			'rotation' => 'dragoon-bis',
 		),
+		'ninja-bis' => array(
+			'config' => 'ninja-bis',
+			'rotation' => 'ninja-bis',
+		),
 		'black-mage-bis' => array(
 			'config' => 'black-mage-bis',
 			'rotation' => 'black-mage-bis',
