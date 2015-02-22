@@ -31,6 +31,10 @@ function render_custom_sim() {
 			'config' => 'bard-bis',
 			'rotation' => 'bard-tp-singer',
 		),
+		'warrior-bis' => array(
+			'config' => 'warrior-bis',
+			'rotation' => 'warrior-bis',
+		),
 	);
 	
 	$actors = array();
